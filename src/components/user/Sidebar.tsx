@@ -48,12 +48,11 @@ const Sidebar = ({ children }: { children: ReactNode }) => {
           width: isOpen ? "350px" : "80px",
 
           transition: {
-            duration: 0.5,
+            duration: 0.3,
             ease: "easeInOut",
-            damping: 10,
           },
         }}
-        className=" bg-white bg-opacity-10 md:flex flex-col items-center gap-7 pt-3 hidden"
+        className=" bg-white bg-opacity-10 hidden md:flex flex-col items-center gap-7 pt-3 "
       >
         {isOpen ? (
           <motion.button
@@ -76,7 +75,7 @@ const Sidebar = ({ children }: { children: ReactNode }) => {
           {isOpen ? (
             <motion.label
               animate={{ opacity: [0, 1] }}
-              transition={{ delay: 0.5, ease: "easeInOut" }}
+              transition={{ delay: 0.2, ease: "easeInOut" }}
               className="text-xl font-medium"
             >
               Salsalani, Abdul
@@ -105,11 +104,17 @@ const Sidebar = ({ children }: { children: ReactNode }) => {
                   : "flex items-center justify-center gap-4 w-full py-3 px-6 rounded-2xl"
               }
             >
-              <div className="text-2xl">{data.icon}</div>
+              <div
+                className={
+                  useMatch(data.path) ? "text-2xl text-purple-900" : "text-2xl"
+                }
+              >
+                {data.icon}
+              </div>
               {isOpen ? (
                 <motion.div
                   animate={{ opacity: [0, 1] }}
-                  transition={{ delay: 0.5, ease: "easeInOut" }}
+                  transition={{ delay: 0.2, ease: "easeInOut" }}
                   className=" text-lg"
                 >
                   {data.name}
